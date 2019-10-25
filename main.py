@@ -2,13 +2,13 @@
 #!/usr/bin/env python3
 
 import zulip
-import pandas from pd 
+import pandas from pd
 from datetime import datetime
-ZULIP_KEY=""
+ZULIP_KEY = ""
 ZULIP_EMAIL = "stanley@zheng.nyc"
 ZULIP_SITE = "https://recurse.zulipchat.com/"
 WRITE_PATH = '/content/drive/My Drive/zulip/oct_25_2019.csv'
-client = zulip.Client(email= ZULIP_EMAIL,
+client = zulip.Client(email=ZULIP_EMAIL,
                       api_key=ZULIP_KEY, site=ZULIP_SITE)
 
 
