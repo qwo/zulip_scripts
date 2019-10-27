@@ -2,7 +2,7 @@
 #!/usr/bin/env python3
 
 import zulip
-import pandas from pd
+from pd import pandas
 from datetime import datetime
 ZULIP_KEY = ""
 ZULIP_EMAIL = "stanley@zheng.nyc"
