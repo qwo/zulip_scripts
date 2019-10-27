@@ -13,8 +13,9 @@ from typing import Any, Dict
 ZULIP_EMAIL = os.getenv("ZULIP_EMAIL")
 ZULIP_KEY = os.getenv("ZULIP_KEY")
 ZULIP_SITE = os.getenv("ZULIP_SITE")
+TO_STREAM = os.getenv("TO_STREAM") or firehose
 
-# TO_STREAM = "firehose"
+TO_STREAM = "firehose"
 # TO_STREAM = "test-stream"
 
 client = zulip.Client(email=ZULIP_EMAIL, api_key=ZULIP_KEY, site=ZULIP_SITE)
