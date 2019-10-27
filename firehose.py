@@ -28,6 +28,7 @@ def print_message(message):
     print(message)
     send_message(message)
 
+
 def narrow_link(REALM_STREAM, stream_id, stream_name, topic, near):
     """
     https://recurse.zulipchat.com/#narrow/stream/102312-consciousness/topic/Stanley.20Zheng
@@ -41,7 +42,7 @@ def narrow_link(REALM_STREAM, stream_id, stream_name, topic, near):
         stream_id=stream_id,
         stream_name=stream_name,
         topic=topic,
-        near=near
+        near=near,
     )
     return url
 
@@ -56,15 +57,19 @@ def send_message(message):
     stream_topic_hash = "{display_recipient}>{subject}"
 
     narrow = narrow_link(
-        "", message.get("stream_id"), FROM_STREAM, message.get("subject"), message.get('id')
+        "",
+        message.get("stream_id"),
+        FROM_STREAM,
+        message.get("subject"),
+        message.get("id"),
     )
 
-    content = "In topic: #**{subject}** from **{sender_full_name}**. #**{display_recipient}>{subject}**. [deeplink]({narrow}) ".format(narrow=narrow,
-        **message
+    content = "In topic: #**{subject}** from **{sender_full_name}**. #**{display_recipient}>{subject}**. [deeplink]({narrow}) ".format(
+        narrow=narrow, **message
     )
 
-    content2 = " #**{display_recipient}>{subject}**.  from **{sender_full_name}**. [deeplink]({narrow}) ".format(narrow=narrow,
-        **message
+    content2 = " #**{display_recipient}>{subject}**.  from **{sender_full_name}**. [deeplink]({narrow}) ".format(
+        narrow=narrow, **message
     )
 
     if last_sent.get(stream_topic_hash):
