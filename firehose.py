@@ -15,7 +15,7 @@ ZULIP_KEY = os.getenv("ZULIP_KEY")
 ZULIP_SITE = os.getenv("ZULIP_SITE")
 
 # TO_STREAM = "firehose"
-TO_STREAM = "test-stream"
+# TO_STREAM = "test-stream"
 
 client = zulip.Client(email=ZULIP_EMAIL, api_key=ZULIP_KEY, site=ZULIP_SITE)
 
@@ -68,9 +68,9 @@ def send_message(message):
         narrow=narrow, **message
     )
 
-    content2 = " #**{display_recipient}>{subject}**.  from **{sender_full_name}**. [deeplink]({narrow}) ".format(
-        narrow=narrow, **message
-    )
+    # content2 = " #**{display_recipient}>{subject}**.  from **{sender_full_name}**. [deeplink]({narrow}) ".format(
+    #     narrow=narrow, **message
+    # )
 
     if last_sent.get(stream_topic_hash):
         return
@@ -79,7 +79,7 @@ def send_message(message):
         "type": "stream",
         "to": TO_STREAM,
         "subject": FROM_STREAM,
-        "content": content2,
+        "content": content,
     }
 
     if TO_STREAM != FROM_STREAM and not PRIVATE:
